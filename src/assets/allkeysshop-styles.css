@@ -1,0 +1,1334 @@
+.webp .store {
+    display: inline-block;
+    background-image: url("https://cdn.allkeyshop.com/images/merchants/storesprite.webp?v=1692373716");
+    box-sizing: content-box;
+    background-size: 1000%
+}
+
+.no-webp .store {
+    display: inline-block;
+    background-image: url("https://cdn.allkeyshop.com/images/merchants/storesprite.png?v=1692373716");
+    box-sizing: content-box;
+    background-size: 1000%
+}
+
+.store-16-0n9 {
+    background-position: 0 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-2game {
+    background-position: -16px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-95gameshop {
+    background-position: -32px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-aldi-life {
+    background-position: -48px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-allyouplay {
+    background-position: -64px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-alternate-de {
+    background-position: -80px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-amazon {
+    background-position: -96px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-ao-uk {
+    background-position: -112px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-argos-uk {
+    background-position: -128px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-auchan {
+    background-position: -144px 0;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-auchan-fr {
+    background-position: 0 -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-battle-net {
+    background-position: -16px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-battlestate-games {
+    background-position: -32px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-bcdkey-com {
+    background-position: -48px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-best-buy-us {
+    background-position: -64px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-bigkidgaming {
+    background-position: -80px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-bitcodes {
+    background-position: -96px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-boulanger-fr {
+    background-position: -112px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-box-uk {
+    background-position: -128px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-buyfifacoins {
+    background-position: -144px -16px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-buygames {
+    background-position: 0 -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-bzfuture-com {
+    background-position: -16px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-cdiscount-fr {
+    background-position: -32px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-cdkeys-com {
+    background-position: -48px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-cdkeysales {
+    background-position: -64px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-cdkeysdeals {
+    background-position: -80px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-chillkeys {
+    background-position: -96px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-cjs-cdkeys {
+    background-position: -112px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-clove-uk {
+    background-position: -128px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-conrad-de {
+    background-position: -144px -32px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-cultura-fr {
+    background-position: 0 -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-currys-uk {
+    background-position: -16px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-darkanddarker {
+    background-position: -32px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-darkanddarker-com {
+    background-position: -48px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-darty-fr {
+    background-position: -64px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-daxter {
+    background-position: -80px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-difmark {
+    background-position: -96px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-direct2drive-uk {
+    background-position: -112px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-discord {
+    background-position: -128px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-diskeys {
+    background-position: -144px -48px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-dlgamer {
+    background-position: 0 -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-dreamgame {
+    background-position: -16px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-dreamgames {
+    background-position: -32px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-driffle {
+    background-position: -48px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-ea {
+    background-position: -64px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-ea-play {
+    background-position: -80px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-ebuyer-uk {
+    background-position: -96px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-eleclerc-fr {
+    background-position: -112px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-electrodepot-fr {
+    background-position: -128px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-electronic-arts {
+    background-position: -144px -64px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-electronicfirst {
+    background-position: 0 -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-eneba {
+    background-position: -16px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-epic-games {
+    background-position: -32px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-etail-market {
+    background-position: -48px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-euronics-de {
+    background-position: -64px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-expert-de {
+    background-position: -80px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-fanatical {
+    background-position: -96px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-fifacoin {
+    background-position: -112px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-fifacoin-players {
+    background-position: -128px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-fifautstore {
+    background-position: -144px -80px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-fnac {
+    background-position: 0 -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-futmarket {
+    background-position: -16px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-g2a {
+    background-position: -32px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-g2g {
+    background-position: -48px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-g2play {
+    background-position: -64px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamebillet {
+    background-position: -80px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamekeys4all {
+    background-position: -96px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gameladen {
+    background-position: -112px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamerall {
+    background-position: -128px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamers-outlet {
+    background-position: -144px -96px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamersgate {
+    background-position: 0 -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamesdeal-com {
+    background-position: -16px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gameseal {
+    background-position: -32px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamesforplay {
+    background-position: -48px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamesload {
+    background-position: -64px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamesplanet {
+    background-position: -80px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamesrepublic {
+    background-position: -96px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamesrocket {
+    background-position: -112px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamestop {
+    background-position: -128px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamingdragons {
+    background-position: -144px -112px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gamivo {
+    background-position: 0 -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gearbest {
+    background-position: -16px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-ggcodes {
+    background-position: -32px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-go2games-us {
+    background-position: -48px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-go4play {
+    background-position: -64px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gog-com {
+    background-position: -80px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-goodoffer24 {
+    background-position: -96px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-greenmangaming {
+    background-position: -112px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-gvgmall {
+    background-position: -128px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-hrk {
+    background-position: -144px -128px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-hrk-game {
+    background-position: 0 -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-humble-store {
+    background-position: -16px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-humblestore {
+    background-position: -32px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-igvault {
+    background-position: -48px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-indiegala {
+    background-position: -64px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-inexus {
+    background-position: -80px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-instant-gaming {
+    background-position: -96px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-johnlewis-uk {
+    background-position: -112px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-joybuggy {
+    background-position: -128px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-joybuggy2 {
+    background-position: -144px -144px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-k4g {
+    background-position: 0 -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-keyekey {
+    background-position: -16px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-keyesd {
+    background-position: -32px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-keys4us {
+    background-position: -48px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-kinguin {
+    background-position: -64px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-livecards {
+    background-position: -80px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-macgamestore {
+    background-position: -96px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-mcgame {
+    background-position: -112px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-mediamarkt-de {
+    background-position: -128px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-medimax-de {
+    background-position: -144px -160px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-medion-de {
+    background-position: 0 -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-micromania {
+    background-position: -16px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-microsoft {
+    background-position: -32px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-mmoga {
+    background-position: -48px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-monster-shop-uk {
+    background-position: -64px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-mtcgame {
+    background-position: -80px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-mulefactory {
+    background-position: -96px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-newegg-us {
+    background-position: -112px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-nintendo-eshop {
+    background-position: -128px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-nintendo-us {
+    background-position: -144px -176px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-noctre {
+    background-position: 0 -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-nokeys {
+    background-position: -16px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-nuuvem {
+    background-position: -32px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-oculus {
+    background-position: -48px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-offergames-uk {
+    background-position: -64px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-official {
+    background-position: -80px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-og4 {
+    background-position: -96px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-og4-com {
+    background-position: -112px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-onlinegold {
+    background-position: -128px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-origin {
+    background-position: -144px -192px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-pixelcodes {
+    background-position: 0 -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-play-asia {
+    background-position: -16px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-playstart {
+    background-position: -32px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-playstation-store {
+    background-position: -48px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-premiumcdkeys {
+    background-position: -64px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-pressstart {
+    background-position: -80px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-psngames {
+    background-position: -96px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-punktid {
+    background-position: -112px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-rakuten-fr {
+    background-position: -128px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-rakuten-france {
+    background-position: -144px -208px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-razer {
+    background-position: 0 -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-riot-games {
+    background-position: -16px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-rockstar-games {
+    background-position: -32px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-royal-cd-keys {
+    background-position: -48px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-royal-key-software {
+    background-position: -64px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-rue-du-commerce {
+    background-position: -80px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-rueducommerce {
+    background-position: -96px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-saturn-de {
+    background-position: -112px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-scdkey {
+    background-position: -128px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-shopplay-uk {
+    background-position: -144px -224px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-shopto {
+    background-position: 0 -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-shopto-uk {
+    background-position: -16px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-simplebuy-io {
+    background-position: -32px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-smythstoys-uk {
+    background-position: -48px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-software-codes {
+    background-position: -64px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-softwareload {
+    background-position: -80px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-softwareload-eu {
+    background-position: -96px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-square-enix {
+    background-position: -112px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-square-enix-us {
+    background-position: -128px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-startselect {
+    background-position: -144px -240px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-startselect-fr {
+    background-position: 0 -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-steam {
+    background-position: -16px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-store700 {
+    background-position: -32px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-target-us {
+    background-position: -48px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-technextday-uk {
+    background-position: -64px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-tesco-uk {
+    background-position: -80px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-test {
+    background-position: -96px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-thechessstore {
+    background-position: -112px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-thehut {
+    background-position: -128px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-titancodes {
+    background-position: -144px -256px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-u7buy {
+    background-position: 0 -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-ubisoft-store {
+    background-position: -16px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-ubisoft-store-family {
+    background-position: -32px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-urcdkeys {
+    background-position: -48px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-utnice {
+    background-position: -64px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-utplay {
+    background-position: -80px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-very-uk {
+    background-position: -96px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-vidaplayer {
+    background-position: -112px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-voidu {
+    background-position: -128px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-walmart {
+    background-position: -144px -272px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-wargaming {
+    background-position: 0 -288px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-whokeys {
+    background-position: -16px -288px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-wingamestore {
+    background-position: -32px -288px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-xbox-game-pass {
+    background-position: -48px -288px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-yuplay {
+    background-position: -64px -288px;
+    width: 16px;
+    height: 16px
+}
+
+.store-16-zavvi {
+    background-position: -80px -288px;
+    width: 16px;
+    height: 16px
+}
+.webp .sprite {
+    display: inline-block;
+    background-image: url("https://cdn.allkeyshop.com/images/providers/sprite/sprite.webp?v=1691465873");
+    box-sizing: content-box;
+    background-size: 1000%;
+}
+
+.no-webp .sprite {
+    display: inline-block;
+    background-image: url("https://cdn.allkeyshop.com/images/providers/sprite/sprite.png?v=1691465873");
+    box-sizing: content-box;
+    background-size: 1000%
+}
+
+.sprite-30-battle-net {
+    background-position: 0 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-bethesda {
+    background-position: -30px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-ea-app {
+    background-position: -60px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-epic-store {
+    background-position: -90px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-game-code {
+    background-position: -120px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-gog {
+    background-position: -150px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-mac-os {
+    background-position: -180px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-nintendo-eshop {
+    background-position: -210px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-oculus {
+    background-position: -240px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-physical-medium {
+    background-position: -270px 0;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-playstation-store {
+    background-position: 0 -30px;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-rockstar {
+    background-position: -30px -30px;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-steam {
+    background-position: -60px -30px;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-ubisoft-connect {
+    background-position: -90px -30px;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-xbox {
+    background-position: -120px -30px;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-30-xbox-play-anywhere {
+    background-position: -150px -30px;
+    width: 30px;
+    height: 30px
+}
+
+.sprite-50-battle-net {
+    background-position: 0 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-bethesda {
+    background-position: -50px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-ea-app {
+    background-position: -100px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-epic-store {
+    background-position: -150px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-game-code {
+    background-position: -200px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-gog {
+    background-position: -250px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-mac-os {
+    background-position: -300px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-nintendo-eshop {
+    background-position: -350px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-oculus {
+    background-position: -400px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-physical-medium {
+    background-position: -450px 0;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-playstation-store {
+    background-position: 0 -50px;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-rockstar {
+    background-position: -50px -50px;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-steam {
+    background-position: -100px -50px;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-ubisoft-connect {
+    background-position: -150px -50px;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-xbox {
+    background-position: -200px -50px;
+    width: 50px;
+    height: 50px
+}
+
+.sprite-50-xbox-play-anywhere {
+    background-position: -250px -50px;
+    width: 50px;
+    height: 50px
+}   

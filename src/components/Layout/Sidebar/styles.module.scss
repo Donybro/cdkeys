@@ -1,0 +1,9 @@
+.sidebar-collapse-button{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  
+  &.collapsed{
+    justify-content: center;
+  }
+}

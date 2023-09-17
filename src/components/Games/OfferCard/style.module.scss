@@ -1,0 +1,83 @@
+.game-offer{
+  .content{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .merchantWrapper{
+    width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .merchantName{
+    font-size: 22px;
+    font-weight: 500;
+    
+  }
+  .platformWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 60px;
+    
+    .platformLogo{
+      background-color: #1a4e9b;
+      border-radius: 99px;
+      border:1px solid #1a4e9b
+    }
+  }
+  
+  .editionWrapper{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .priceWithoutCoupon{
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: #1a4e9b;
+      color: #fff;
+      text-decoration: line-through;
+    }
+  }
+  
+  .couponWrapper{
+    display: flex;  
+    gap: 8px;
+    
+    .discountValue{
+      flex-grow: 0;
+      border-radius: 99px;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4e62f;
+      color: #000;
+    }
+    
+    .code{
+      border: 1px dashed #1a4e9b;
+      color: #1a4e9b;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 8px 12px;
+    }
+  }
+  .priceWrapper{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .price{
+      background: #74f5c9;
+      border-radius: 16px;
+      font-size: 25px;
+      padding: 8px 12px;
+    }
+  }
+  
+}
