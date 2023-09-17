@@ -44,7 +44,7 @@ const Index: FC = () => {
       title: "Add to favorites",
       render: (val: any, record: any) => (
         <AddToFavorites
-          isLoading={addingToFavoritesIsLoading}
+          isLoading={addingToFavoritesIsLoading === record.game_id}
           onClick={() => addToFavoritesHandler(record.game_id)}
         />
       ),

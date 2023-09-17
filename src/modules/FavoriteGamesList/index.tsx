@@ -33,8 +33,8 @@ const Index: FC = () => {
       title: "Action",
       render: (val: any, record: any) => (
         <Button
-          disabled={addingToFavoritesIsLoading}
-          loading={addingToFavoritesIsLoading}
+          disabled={addingToFavoritesIsLoading === record.game_id}
+          loading={addingToFavoritesIsLoading === record.game_id}
           type={"primary"}
           onClick={() => onDeleteFromFavorites(record.game_id)}
           icon={<FontAwesomeIcon icon={faTrash} />}

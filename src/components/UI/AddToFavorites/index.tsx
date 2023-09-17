@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Button, Rate, Spin } from "antd";
+import { Rate, Spin } from "antd";
 import styles from "./style.module.scss";
 
 interface AddToFavoritesProps {
@@ -10,9 +10,11 @@ interface AddToFavoritesProps {
 const Index: FC<AddToFavoritesProps> = ({ onClick, isLoading }) => {
   return (
     <div onClick={onClick} className={styles.addToFavoritesButton}>
-      <Button loading={isLoading} disabled={isLoading}>
+      {isLoading ? (
+        <Spin spinning={isLoading} />
+      ) : (
         <Rate disabled={isLoading} count={1} />
-      </Button>
+      )}
     </div>
   );
 };

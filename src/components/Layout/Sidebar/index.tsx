@@ -1,7 +1,12 @@
 import React, { FC, useState } from "react";
 import { Button, Layout, Menu } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faGamepad, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faGamepad,
+  faStar,
+  faArrowUpRightDots,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -47,6 +52,11 @@ const Index: FC = () => {
             key: "/favorite-games",
             icon: <FontAwesomeIcon icon={faStar} />,
             label: "Favorite games",
+          },
+          {
+            key: "/games-margins",
+            icon: <FontAwesomeIcon icon={faArrowUpRightDots} />,
+            label: "Games margins",
           },
         ]}
       />

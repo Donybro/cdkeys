@@ -1,0 +1,20 @@
+.ui-comparison-card{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  .merchantTwo,.merchantOne{
+    padding: 5px 10px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &.with-shadow{
+    .merchantTwo,.merchantOne{
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      border: 1px solid #fafafa;  
+    }
+  }
+}
