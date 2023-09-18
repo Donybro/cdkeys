@@ -23,7 +23,7 @@ const Index: FC = () => {
       render: (record: any) => {
         return (
           <div>
-            <h3>{record.game.name}</h3>
+            <h3>{record?.name}</h3>
           </div>
         );
       },

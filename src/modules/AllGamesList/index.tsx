@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import useGames from "../../hooks/useGames";
 import styles from "../../pages/AllGamesPage/style.module.scss";
 import { Spin, Table } from "antd";
@@ -7,10 +7,13 @@ import { faBan } from "@fortawesome/free-solid-svg-icons";
 import OfferCard from "../../components/Games/OfferCard";
 import AddToFavorites from "../../components/UI/AddToFavorites";
 import useAddToFavorites from "../../hooks/useAddToFavorites";
+import MeiliSearchBox from "../../components/UI/MeiliSearchBox";
 const Index: FC = () => {
   const { gamesList, gamesListIsLoading } = useGames();
+
   const { addToFavoritesHandler, isLoading: addingToFavoritesIsLoading } =
     useAddToFavorites();
+
   const columns: any = [
     {
       title: "Name",
@@ -45,7 +48,10 @@ const Index: FC = () => {
       render: (val: any, record: any) => (
         <AddToFavorites
           isLoading={addingToFavoritesIsLoading === record.game_id}
-          onClick={() => addToFavoritesHandler(record.game_id)}
+          onClick={async () => {
+            await addToFavoritesHandler(record.game_id);
+            // setKey(key + 1);
+          }}
         />
       ),
       width: "100px",
@@ -57,42 +63,47 @@ const Index: FC = () => {
       {gamesListIsLoading ? (
         <Spin />
       ) : (
-        <Table
-          rowKey={(record) => record.id}
-          columns={columns}
-          dataSource={gamesList.data}
-          pagination={{ pageSize: 100, defaultPageSize: 100 }}
-          expandable={{
-            expandedRowRender: (record) => {
-              return record.lastUpdate?.offers.map(
-                (offer: any, index: number) => {
-                  return (
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                      }}
-                    >
-                      {index + 1}
-                      <OfferCard
-                        offerInfo={offer}
-                        merchantInfo={
-                          record.lastUpdate.merchants[offer.merchant]
-                        }
-                        regionInfo={record.lastUpdate.regions[offer.region]}
-                        editionInfo={record.lastUpdate.editions[offer.edition]}
-                      />
-                    </div>
-                  );
-                },
-              );
-            },
-            rowExpandable: (record: any) =>
-              record.lastUpdate?.offers?.length > 1,
-          }}
-          scroll={{ y: 900 }}
-        />
+        <div>
+          <MeiliSearchBox />
+          <Table
+            rowKey={(record) => record.id}
+            columns={columns}
+            dataSource={gamesList.data}
+            pagination={{ pageSize: 100, defaultPageSize: 100 }}
+            expandable={{
+              expandedRowRender: (record) => {
+                return record.lastUpdate?.offers.map(
+                  (offer: any, index: number) => {
+                    return (
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                        }}
+                      >
+                        {index + 1}
+                        <OfferCard
+                          offerInfo={offer}
+                          merchantInfo={
+                            record.lastUpdate.merchants[offer.merchant]
+                          }
+                          regionInfo={record.lastUpdate.regions[offer.region]}
+                          editionInfo={
+                            record.lastUpdate.editions[offer.edition]
+                          }
+                        />
+                      </div>
+                    );
+                  },
+                );
+              },
+              rowExpandable: (record: any) =>
+                record.lastUpdate?.offers?.length > 1,
+            }}
+            scroll={{ y: 900 }}
+          />
+        </div>
       )}
     </div>
   );

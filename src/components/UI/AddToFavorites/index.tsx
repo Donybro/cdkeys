@@ -9,11 +9,11 @@ interface AddToFavoritesProps {
 
 const Index: FC<AddToFavoritesProps> = ({ onClick, isLoading }) => {
   return (
-    <div onClick={onClick} className={styles.addToFavoritesButton}>
+    <div className={styles.addToFavoritesButton}>
       {isLoading ? (
         <Spin spinning={isLoading} />
       ) : (
-        <Rate disabled={isLoading} count={1} />
+        <Rate onChange={() => onClick()} disabled={isLoading} count={1} />
       )}
     </div>
   );

@@ -116,6 +116,19 @@
     "@algolia/logger-common" "4.20.0"
     "@algolia/requester-common" "4.20.0"
 
+"@algolia/ui-components-highlight-vdom@^1.2.1":
+  "integrity" "sha512-IlYgIaCUEkz9ezNbwugwKv991oOHhveyq6nzL0F1jDzg1p3q5Yj/vO4KpNG910r2dwGCG3nEm5GtChcLnarhFA=="
+  "resolved" "https://registry.npmjs.org/@algolia/ui-components-highlight-vdom/-/ui-components-highlight-vdom-1.2.1.tgz"
+  "version" "1.2.1"
+  dependencies:
+    "@algolia/ui-components-shared" "1.2.1"
+    "@babel/runtime" "^7.0.0"
+
+"@algolia/ui-components-shared@^1.2.1", "@algolia/ui-components-shared@1.2.1":
+  "integrity" "sha512-a7mYHf/GVQfhAx/HRiMveKkFvHspQv/REdG+C/FIOosiSmNZxX7QebDwJkrGSmDWdXO12D0Qv1xn3AytFcEDlQ=="
+  "resolved" "https://registry.npmjs.org/@algolia/ui-components-shared/-/ui-components-shared-1.2.1.tgz"
+  "version" "1.2.1"
+
 "@ampproject/remapping@^2.2.0":
   "integrity" "sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg=="
   "resolved" "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.2.1.tgz"
@@ -336,7 +349,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.22.5"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.7", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.0", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.2", "@babel/runtime@^7.7.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.7", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.0", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.2", "@babel/runtime@^7.7.2":
   "integrity" "sha512-21t/fkKLMZI4pqP2wlmsQAWnYW1PDyKyyUV4vCi+B25ydmdaYTKXPwCj0BzSUnZf4seIiYvSA3jcZ3gdsMFkLQ=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.22.10.tgz"
   "version" "7.22.10"
@@ -606,6 +619,21 @@
   "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.8.0.tgz"
   "version" "1.8.0"
 
+"@types/dom-speech-recognition@^0.0.1":
+  "integrity" "sha512-udCxb8DvjcDKfk1WTBzDsxFbLgYxmQGKrE/ricoMqHRNjSlSUCcamVTA5lIQqzY10mY5qCY0QDwBfFEwhfoDPw=="
+  "resolved" "https://registry.npmjs.org/@types/dom-speech-recognition/-/dom-speech-recognition-0.0.1.tgz"
+  "version" "0.0.1"
+
+"@types/google.maps@^3.45.3":
+  "integrity" "sha512-zh6333O/yPfcvRxpBTjnNFJjiHiujvy+tTAWwvNj3LMy90Y+VLTom8n9gvmgjXhOHgHvYpgO2Xyz31wYEYN27A=="
+  "resolved" "https://registry.npmjs.org/@types/google.maps/-/google.maps-3.54.1.tgz"
+  "version" "3.54.1"
+
+"@types/hogan.js@^3.0.0":
+  "integrity" "sha512-M6jOVsZEK31II8HV9QaYI5pg/w7fZb+3aqdCn3M3uofBswvrYBzbaQwSudB6z1UqF2IT3B8vt/3oBoa7XqugFw=="
+  "resolved" "https://registry.npmjs.org/@types/hogan.js/-/hogan.js-3.0.2.tgz"
+  "version" "3.0.2"
+
 "@types/json-schema@^7.0.12":
   "integrity" "sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA=="
   "resolved" "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.12.tgz"
@@ -620,6 +648,11 @@
   "integrity" "sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w=="
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   "version" "15.7.5"
+
+"@types/qs@^6.5.3":
+  "integrity" "sha512-u95svzDlTysU5xecFNTgfFG5RUWu1A9P0VzgpcIiGZA9iraHOdSzcxMxQ55DyeRaGCSxQi7LxXDI4rzq/MYfdg=="
+  "resolved" "https://registry.npmjs.org/@types/qs/-/qs-6.9.8.tgz"
+  "version" "6.9.8"
 
 "@types/react-dom@^18.2.7":
   "integrity" "sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA=="
@@ -759,6 +792,11 @@
     "@babel/plugin-transform-react-jsx-source" "^7.22.5"
     "react-refresh" "^0.14.0"
 
+"abbrev@1":
+  "integrity" "sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q=="
+  "resolved" "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz"
+  "version" "1.1.1"
+
 "acorn-jsx@^5.3.2":
   "integrity" "sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ=="
   "resolved" "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
@@ -779,7 +817,7 @@
     "json-schema-traverse" "^0.4.1"
     "uri-js" "^4.2.2"
 
-"algoliasearch-helper@>=3":
+"algoliasearch-helper@>=3", "algoliasearch-helper@3.14.1":
   "integrity" "sha512-TZihm6eisSqgLWOXpISAUFXAolJvEpa1gkTjUUEDmVl+TTiQuNvzLQ/osOiqIXzx6QSS4Pd6Ry+SKKOwiqJ17g=="
   "resolved" "https://registry.npmjs.org/algoliasearch-helper/-/algoliasearch-helper-3.14.1.tgz"
   "version" "3.14.1"
@@ -1465,6 +1503,19 @@
   "resolved" "https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz"
   "version" "4.0.0"
 
+"hogan.js@^3.0.2":
+  "integrity" "sha512-RqGs4wavGYJWE07t35JQccByczmNUXQT0E12ZYV1VKYu5UiAU9lsos/yBAcf840+zrUQQxgVduCR5/B8nNtibg=="
+  "resolved" "https://registry.npmjs.org/hogan.js/-/hogan.js-3.0.2.tgz"
+  "version" "3.0.2"
+  dependencies:
+    "mkdirp" "0.3.0"
+    "nopt" "1.0.10"
+
+"htm@^3.0.0":
+  "integrity" "sha512-983Vyg8NwUE7JkZ6NmOqpCZ+sh1bKv2iYTlUkzlWmA5JD2acKoxd4KVxbMmxX/85mtfdnDmTFoNKcg5DGAvxNQ=="
+  "resolved" "https://registry.npmjs.org/htm/-/htm-3.1.1.tgz"
+  "version" "3.1.1"
+
 "ignore@^5.2.0", "ignore@^5.2.4":
   "integrity" "sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ=="
   "resolved" "https://registry.npmjs.org/ignore/-/ignore-5.2.4.tgz"
@@ -1500,6 +1551,25 @@
   "integrity" "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
   "resolved" "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
   "version" "2.0.4"
+
+"instantsearch.js@4.56.11":
+  "integrity" "sha512-SEV2qCee/lTPIa4B18ajV+ICkWCnQOyrQZE1HITXIOLpmwWpHEV5wjB3rxaW7bIY1DsQ+6p6DpWLVSMRYXPiNA=="
+  "resolved" "https://registry.npmjs.org/instantsearch.js/-/instantsearch.js-4.56.11.tgz"
+  "version" "4.56.11"
+  dependencies:
+    "@algolia/events" "^4.0.1"
+    "@algolia/ui-components-highlight-vdom" "^1.2.1"
+    "@algolia/ui-components-shared" "^1.2.1"
+    "@types/dom-speech-recognition" "^0.0.1"
+    "@types/google.maps" "^3.45.3"
+    "@types/hogan.js" "^3.0.0"
+    "@types/qs" "^6.5.3"
+    "algoliasearch-helper" "3.14.1"
+    "hogan.js" "^3.0.2"
+    "htm" "^3.0.0"
+    "preact" "^10.10.0"
+    "qs" "^6.5.1 < 6.10"
+    "search-insights" "^2.6.0"
 
 "is-binary-path@~2.1.0":
   "integrity" "sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw=="
@@ -1677,6 +1747,11 @@
   dependencies:
     "brace-expansion" "^1.1.7"
 
+"mkdirp@0.3.0":
+  "integrity" "sha512-OHsdUcVAQ6pOtg5JYWpCBo9W/GySVuwvP9hueRMW7UqshC0tbfzLv8wjySTPm3tfUZ/21CE9E1pJagOA91Pxew=="
+  "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.0.tgz"
+  "version" "0.3.0"
+
 "ms@2.1.2":
   "integrity" "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
@@ -1710,6 +1785,13 @@
   "integrity" "sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ=="
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-2.0.13.tgz"
   "version" "2.0.13"
+
+"nopt@1.0.10":
+  "integrity" "sha512-NWmpvLSqUrgrAC9HCuxEvb+PSloHpqVu+FqcO4eeF2h5qYRhA7ev6KvelyQAKtegUbC6RypJnlEOhd8vloNKYg=="
+  "resolved" "https://registry.npmjs.org/nopt/-/nopt-1.0.10.tgz"
+  "version" "1.0.10"
+  dependencies:
+    "abbrev" "1"
 
 "normalize-path@^3.0.0", "normalize-path@~3.0.0":
   "integrity" "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="
@@ -1805,6 +1887,11 @@
     "picocolors" "^1.0.0"
     "source-map-js" "^1.0.2"
 
+"preact@^10.10.0":
+  "integrity" "sha512-X9BODrvQ4Ekwv9GURm9AKAGaomqXmip7NQTZgY7gcNmr7XE83adOMJvd3N42id1tMFU7ojiynRsYnY6/BRFxLA=="
+  "resolved" "https://registry.npmjs.org/preact/-/preact-10.17.1.tgz"
+  "version" "10.17.1"
+
 "prelude-ls@^1.2.1":
   "integrity" "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="
   "resolved" "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
@@ -1838,6 +1925,11 @@
   "integrity" "sha512-oyF+Urr3oAMUG/OiOuONL3HXM+53wvuH3mtIWQrYmsXoAq0DkvZp2RYUWFSMFtbdOpuS++9v+WAkzNVkMlNW6Q=="
   "resolved" "https://registry.npmjs.org/qrcode.react/-/qrcode.react-3.1.0.tgz"
   "version" "3.1.0"
+
+"qs@^6.5.1 < 6.10":
+  "integrity" "sha512-IhMFgUmuNpyRfxA90umL7ByLlgRXu6tIfKPpF5TmcfRLlLCckfP/g3IQmju6jjpu+Hh8rA+2p6A27ZSPOOHdKw=="
+  "resolved" "https://registry.npmjs.org/qs/-/qs-6.9.7.tgz"
+  "version" "6.9.7"
 
 "queue-microtask@^1.2.2":
   "integrity" "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A=="
@@ -2203,7 +2295,7 @@
     "rc-resize-observer" "^1.0.0"
     "rc-util" "^5.36.0"
 
-"react-dom@*", "react-dom@^18.2.0", "react-dom@>= 16.3.0 < 19", "react-dom@>=16.0.0", "react-dom@>=16.11.0", "react-dom@>=16.8", "react-dom@>=16.9.0":
+"react-dom@*", "react-dom@^18.2.0", "react-dom@>= 16.3.0 < 19", "react-dom@>= 16.8.0 < 19", "react-dom@>=16.0.0", "react-dom@>=16.11.0", "react-dom@>=16.8", "react-dom@>=16.9.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -2226,6 +2318,16 @@
     "prop-types" "^15.6.2"
     "react-fast-compare" "^3.0.0"
 
+"react-instantsearch-core@7.0.3":
+  "integrity" "sha512-tfaTJHZ0wFTr24bGyrOvY7VWSAtrOvOcL3ULTtoFguCHg6DJp3njmx3A8WouK10evh/8hMG9C5mNATyVLwn1bg=="
+  "resolved" "https://registry.npmjs.org/react-instantsearch-core/-/react-instantsearch-core-7.0.3.tgz"
+  "version" "7.0.3"
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    "algoliasearch-helper" "3.14.1"
+    "instantsearch.js" "4.56.11"
+    "use-sync-external-store" "^1.0.0"
+
 "react-instantsearch-dom@^6.40.4":
   "integrity" "sha512-Oy8EKEOg/dfTE8tHc7GZRlzUdbZY4Mxas1x2OtvSNui+YAbIWafIf1g98iOGyVTB2qI5WH91YyUJTLPNfLrs6Q=="
   "resolved" "https://registry.npmjs.org/react-instantsearch-dom/-/react-instantsearch-dom-6.40.4.tgz"
@@ -2237,6 +2339,15 @@
     "prop-types" "^15.6.2"
     "react-fast-compare" "^3.0.0"
     "react-instantsearch-core" "6.40.4"
+
+"react-instantsearch@^7.0.3":
+  "integrity" "sha512-p3sLHdejrXQHQJVmc6HqGXUWNZlYrGeI0TyaQmwtI9dR3TdXB4DXKOQ7xodMBz9Vgj44r09ob6cYKbg3OL9O2A=="
+  "resolved" "https://registry.npmjs.org/react-instantsearch/-/react-instantsearch-7.0.3.tgz"
+  "version" "7.0.3"
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    "instantsearch.js" "4.56.11"
+    "react-instantsearch-core" "7.0.3"
 
 "react-is@^16.12.0", "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
@@ -2272,7 +2383,7 @@
   dependencies:
     "@remix-run/router" "1.8.0"
 
-"react@*", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16.3.0 < 19", "react@>=16.0.0", "react@>=16.11.0", "react@>=16.3", "react@>=16.8", "react@>=16.9.0":
+"react@*", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16.3.0 < 19", "react@>= 16.8.0 < 19", "react@>=16.0.0", "react@>=16.11.0", "react@>=16.3", "react@>=16.8", "react@>=16.9.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -2359,6 +2470,11 @@
   "version" "3.0.10"
   dependencies:
     "compute-scroll-into-view" "^3.0.2"
+
+"search-insights@^2.6.0":
+  "integrity" "sha512-PxA9M5Q2bpBelVvJ3oDZR8nuY00Z6qwOxL53wNpgzV28M/D6u9WUbImDckjLSILBF8F1hn/mgyuUaOPtjow4Qw=="
+  "resolved" "https://registry.npmjs.org/search-insights/-/search-insights-2.8.2.tgz"
+  "version" "2.8.2"
 
 "semver@^6.3.1":
   "integrity" "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="
@@ -2506,6 +2622,11 @@
   "version" "4.4.1"
   dependencies:
     "punycode" "^2.1.0"
+
+"use-sync-external-store@^1.0.0":
+  "integrity" "sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA=="
+  "resolved" "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz"
+  "version" "1.2.0"
 
 "vite@^4.2.0", "vite@^4.4.5":
   "integrity" "sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA=="
