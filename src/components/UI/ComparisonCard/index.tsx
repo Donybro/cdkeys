@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styles from "./style.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsLeftRight } from "@fortawesome/free-solid-svg-icons";
+import MerchantItem from "../MerchantItem";
 
 interface ComparisonCardProps {
   merchantOne: any;
@@ -20,14 +21,18 @@ const Index: FC<ComparisonCardProps> = ({
         withShadow ? "with-shadow" : ""
       }`}
     >
-      <div className={styles.merchantOne + " webp"}>
-        <span className={`store store-16-${merchantOne?.logoSlug}`}></span>
-        {merchantOne?.name}
+      <div className={styles.merchantOne}>
+        <MerchantItem
+          name={merchantOne?.name}
+          logoSlug={merchantOne?.logoSlug}
+        />
       </div>
       <FontAwesomeIcon icon={faArrowsLeftRight} />
-      <div className={styles.merchantTwo + " webp"}>
-        <span className={`store store-16-${merchantTwo?.logoSlug}`}></span>
-        {merchantTwo?.name}
+      <div className={styles.merchantTwo}>
+        <MerchantItem
+          name={merchantTwo?.name}
+          logoSlug={merchantTwo?.logoSlug}
+        />
       </div>
     </div>
   );

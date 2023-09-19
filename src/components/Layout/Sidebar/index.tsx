@@ -58,6 +58,11 @@ const Index: FC = () => {
             icon: <FontAwesomeIcon icon={faArrowUpRightDots} />,
             label: "Games margins",
           },
+          {
+            key: "/merchants",
+            icon: <FontAwesomeIcon icon={faArrowUpRightDots} />,
+            label: "Merchants",
+          },
         ]}
       />
     </Sider>

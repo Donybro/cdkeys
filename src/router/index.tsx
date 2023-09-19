@@ -3,6 +3,7 @@ import AdminLayout from "../components/Layout/AdminLayout";
 import AllGamesPage from "../pages/AllGamesPage";
 import FavoriteGamesList from "../pages/FavoriteGamesList";
 import GamesMargins from "../pages/GamesMargins";
+import Merchants from "../pages/Merchants";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/games-margins",
         element: <GamesMargins />,
+      },
+      {
+        path: "/merchants",
+        element: <Merchants />,
       },
     ],
   },
