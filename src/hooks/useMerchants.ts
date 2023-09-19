@@ -1,12 +1,17 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import apiRequest from "../shared/utils/api/apiRequest";
+import { useState } from "react";
 
 export default function useMerchants() {
-  const { isLoading, data, error } = useQuery("merchants", async () => {
+  const [keyForMerchant, updateMerchantsList] = useState("merchants");
+
+  const { isLoading, data, error } = useQuery([keyForMerchant], async () => {
     return await apiRequest.get("/merchants");
   });
 
-  const { data: merchantPairs } = useQuery("comparisons", async () => {
+  const [keyForComparisons, updateComparisonsList] = useState("comparisons");
+
+  const { data: merchantPairs } = useQuery([keyForComparisons], async () => {
     return await apiRequest.get("/comparisons");
   });
 
@@ -30,11 +35,43 @@ export default function useMerchants() {
     return existSelectedMerchantPairIds;
   }
 
+  const {
+    mutate,
+    isLoading: merchantsAreAdding,
+    isSuccess: merchantAreAdded,
+    isError: merchantAreNotAdded,
+  } = useMutation({
+    mutationFn: (data: any) => {
+      return apiRequest.post("/comparisons", data);
+    },
+  });
+
+  const {
+    mutate: deletePairHandler,
+    isLoading: pairIsDeleting,
+    isSuccess: pairIsDeleted,
+    isError: pairIsNotDeleted,
+  } = useMutation({
+    mutationFn: (comparisonId: any) => {
+      return apiRequest.delete("/comparisons/" + comparisonId);
+    },
+  });
+
   return {
     merchantsAreLoading: isLoading,
     merchantsList: data?.data || [],
     merchantsListError: error,
     merchantPairs: merchantPairs?.data || [],
     getExistPairSuggestionsForSelectedMerchant,
+    addMerchantPair: mutate,
+    merchantsAreAdding,
+    merchantAreAdded,
+    merchantAreNotAdded,
+    deletePairHandler,
+    pairIsDeleting,
+    pairIsDeleted,
+    pairIsNotDeleted,
+    updateMerchantsList,
+    updateComparisonsList,
   };
 }
