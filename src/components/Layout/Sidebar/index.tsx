@@ -6,6 +6,7 @@ import {
   faGamepad,
   faStar,
   faArrowUpRightDots,
+  faHandHoldingDollar,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +61,7 @@ const Index: FC = () => {
           },
           {
             key: "/merchants",
-            icon: <FontAwesomeIcon icon={faArrowUpRightDots} />,
+            icon: <FontAwesomeIcon icon={faHandHoldingDollar} />,
             label: "Merchants",
           },
         ]}
