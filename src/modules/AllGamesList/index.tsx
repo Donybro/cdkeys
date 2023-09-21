@@ -1,18 +1,35 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import useGames from "../../hooks/useGames";
 import styles from "../../pages/AllGamesPage/style.module.scss";
-import { Spin, Table } from "antd";
+import { Spin, Table, Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBan } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faTrash } from "@fortawesome/free-solid-svg-icons";
 import OfferCard from "../../components/Games/OfferCard";
 import AddToFavorites from "../../components/UI/AddToFavorites";
 import useAddToFavorites from "../../hooks/useAddToFavorites";
 import MeiliSearchBox from "../../components/UI/MeiliSearchBox";
-const Index: FC = () => {
-  const { gamesList, gamesListIsLoading } = useGames();
 
-  const { addToFavoritesHandler, isLoading: addingToFavoritesIsLoading } =
-    useAddToFavorites();
+const Index: FC = () => {
+  const {
+    gamesList,
+    gamesListIsLoading,
+    setKey,
+    key,
+    setCurrentPage,
+    currentPage,
+    totalGames,
+  } = useGames();
+
+  const {
+    addToFavoritesHandler,
+    isLoading: addingToFavoritesIsLoading,
+    deleteFromFavorites,
+  } = useAddToFavorites();
+
+  const onDeleteFromFavorites = async (game_id: any) => {
+    await deleteFromFavorites(game_id);
+    setKey(key + "1");
+  };
 
   const columns: any = [
     {
@@ -45,18 +62,38 @@ const Index: FC = () => {
     },
     {
       title: "Add to favorites",
-      render: (val: any, record: any) => (
-        <AddToFavorites
-          isLoading={addingToFavoritesIsLoading === record.game_id}
-          onClick={async () => {
-            await addToFavoritesHandler(record.game_id);
-            // setKey(key + 1);
-          }}
-        />
-      ),
-      width: "100px",
+      render: (val: any, record: any) => {
+        return (
+          <div>
+            {record.is_favorite ? (
+              <Button
+                disabled={addingToFavoritesIsLoading === record.id}
+                loading={addingToFavoritesIsLoading === record.id}
+                type={"primary"}
+                onClick={() => onDeleteFromFavorites(record.id)}
+                icon={<FontAwesomeIcon icon={faTrash} />}
+              >
+                Delete from favorites
+              </Button>
+            ) : (
+              <AddToFavorites
+                isLoading={addingToFavoritesIsLoading === record.id}
+                onClick={async () => {
+                  await addToFavoritesHandler(record.id);
+                  setKey(key + "1");
+                }}
+              />
+            )}
+          </div>
+        );
+      },
+      width: "220px",
     },
   ];
+
+  const onPaginationChange = (page: any) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div className={styles.gamesPagesWrapper}>
@@ -69,7 +106,13 @@ const Index: FC = () => {
             rowKey={(record) => record.id}
             columns={columns}
             dataSource={gamesList.data}
-            pagination={{ pageSize: 100, defaultPageSize: 100 }}
+            pagination={{
+              pageSize: 100,
+              defaultPageSize: 100,
+              current: currentPage,
+              onChange: onPaginationChange,
+              total: totalGames,
+            }}
             expandable={{
               expandedRowRender: (record) => {
                 return record.lastUpdate?.offers.map(
@@ -102,6 +145,7 @@ const Index: FC = () => {
                 record.lastUpdate?.offers?.length > 1,
             }}
             scroll={{ y: 900 }}
+            showTotal={true}
           />
         </div>
       )}

@@ -4,9 +4,14 @@ import { useState } from "react";
 
 export default function useFavoriteGames() {
   const [key, setKey] = useState("favorite-games");
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const { isLoading, data, error } = useQuery(key, async () => {
-    return await apiRequest.get("/favorites");
+  const { isLoading, data, error } = useQuery([key, currentPage], async () => {
+    return await apiRequest.get("/favorites", {
+      params: {
+        page: currentPage,
+      },
+    });
   });
 
   return {
@@ -15,5 +20,8 @@ export default function useFavoriteGames() {
     gamesListError: error,
     setKey,
     key,
+    total: data?.data?.total,
+    setCurrentPage,
+    currentPage,
   };
 }

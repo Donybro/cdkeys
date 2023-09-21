@@ -4,8 +4,13 @@ import { useState } from "react";
 
 export default function useGames() {
   const [key, setKey] = useState("games");
-  const { isLoading, data, error } = useQuery("games", async () => {
-    return await apiRequest.get("/games");
+  const [currentPage, setCurrentPage] = useState(1);
+  const { isLoading, data, error } = useQuery([key, currentPage], async () => {
+    return await apiRequest.get("/games", {
+      params: {
+        page: currentPage,
+      },
+    });
   });
 
   return {
@@ -14,5 +19,8 @@ export default function useGames() {
     gamesListError: error,
     setKey,
     key,
+    totalGames: data?.data?.total,
+    setCurrentPage,
+    currentPage,
   };
 }

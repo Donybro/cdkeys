@@ -7,7 +7,15 @@ import useAddToFavorites from "../../hooks/useAddToFavorites";
 import useFavoriteGames from "../../hooks/useFavoriteGames";
 
 const Index: FC = () => {
-  const { gamesList, gamesListIsLoading, setKey, key } = useFavoriteGames();
+  const {
+    gamesList,
+    gamesListIsLoading,
+    setKey,
+    key,
+    total,
+    currentPage,
+    setCurrentPage,
+  } = useFavoriteGames();
   const { deleteFromFavorites, isLoading: addingToFavoritesIsLoading } =
     useAddToFavorites();
 
@@ -15,6 +23,7 @@ const Index: FC = () => {
     await deleteFromFavorites(game_id);
     setKey(key + "1");
   };
+
   const columns: any = [
     {
       key: "name",
@@ -33,10 +42,10 @@ const Index: FC = () => {
       title: "Action",
       render: (val: any, record: any) => (
         <Button
-          disabled={addingToFavoritesIsLoading === record.game_id}
-          loading={addingToFavoritesIsLoading === record.game_id}
+          disabled={addingToFavoritesIsLoading === record.id}
+          loading={addingToFavoritesIsLoading === record.id}
           type={"primary"}
-          onClick={() => onDeleteFromFavorites(record.game_id)}
+          onClick={() => onDeleteFromFavorites(record.id)}
           icon={<FontAwesomeIcon icon={faTrash} />}
         >
           Delete from favorites
@@ -45,6 +54,10 @@ const Index: FC = () => {
       width: "100px",
     },
   ];
+
+  const onPaginationChange = (page: any) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div className={styles.gamesPagesWrapper}>
@@ -55,7 +68,13 @@ const Index: FC = () => {
           rowKey={(record) => record.id}
           columns={columns}
           dataSource={gamesList.data}
-          pagination={{ pageSize: 100, defaultPageSize: 100 }}
+          pagination={{
+            pageSize: 100,
+            defaultPageSize: 100,
+            current: currentPage,
+            onChange: onPaginationChange,
+            total: total,
+          }}
           scroll={{ y: 900 }}
         />
       )}

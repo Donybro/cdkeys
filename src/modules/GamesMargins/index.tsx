@@ -1,8 +1,6 @@
 import React, { FC } from "react";
 import styles from "../../pages/AllGamesPage/style.module.scss";
-import { Button, Select, Space, Spin, Table } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Select, Spin, Table } from "antd";
 import useGamesMargins from "../../hooks/useGamesMargins";
 import useComparisonPairs from "../../hooks/useComparisonPairs";
 import ComparisonCard from "../../components/UI/ComparisonCard";
@@ -12,12 +10,18 @@ const Index: FC = () => {
     gamesList,
     gamesListIsLoading,
     setKey: setComparisonId,
+    currentPage,
+    setCurrentPage,
+    total,
   } = useGamesMargins();
   const { data: comparisonList, getPairById } = useComparisonPairs();
   const { Option } = Select;
 
   const handleChange = (value: any) => {
     setComparisonId(value);
+  };
+  const onPaginationChange = (page: any) => {
+    setCurrentPage(page);
   };
 
   const columns: any = [
@@ -53,6 +57,7 @@ const Index: FC = () => {
       render: (record: any) => {
         return <div>{record.percent}%</div>;
       },
+      width: "100px",
     },
   ];
 
@@ -93,7 +98,13 @@ const Index: FC = () => {
           rowKey={(record) => record.id}
           columns={columns}
           dataSource={gamesList.data}
-          pagination={{ pageSize: 100, defaultPageSize: 100 }}
+          pagination={{
+            pageSize: 100,
+            defaultPageSize: 100,
+            current: currentPage,
+            onChange: onPaginationChange,
+            total: total,
+          }}
           scroll={{ y: 900 }}
         />
       )}

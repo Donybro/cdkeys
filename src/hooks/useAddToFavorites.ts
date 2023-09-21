@@ -23,7 +23,9 @@ export default function useAddToFavorites() {
   const deleteFromFavorites = async (game_id: any) => {
     try {
       setIsLoading(game_id);
-      const { data } = await apiRequest.delete("/favorites/" + game_id);
+      const { data } = await apiRequest.post("/favorites/remove", {
+        game_id,
+      });
       if (data.success) {
         message.success("Deleted from favorites");
       }
