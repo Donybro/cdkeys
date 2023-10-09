@@ -7,7 +7,6 @@ const Index: FC = ({ children }: any) => {
 
   const getUser = async () => {
     const resp = await apiRequest.get("/user");
-    console.log(resp);
   };
 
   if (!activeUser) {

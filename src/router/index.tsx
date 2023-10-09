@@ -6,6 +6,7 @@ import GamesMargins from "../pages/GamesMargins";
 import Merchants from "../pages/Merchants";
 import AuthProvider from "../modules/AuthProvider";
 import Login from "../pages/Login";
+import GameView from "../pages/GameView";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/merchants",
         element: <Merchants />,
+      },
+      {
+        path: "/games/:gameId",
+        element: <GameView />,
       },
     ],
   },

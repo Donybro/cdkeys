@@ -13,7 +13,9 @@ const Index: FC<AddToFavoritesProps> = ({ onClick, isLoading }) => {
       {isLoading ? (
         <Spin spinning={isLoading} />
       ) : (
-        <Rate onChange={() => onClick()} disabled={isLoading} count={1} />
+        <span onClick={(e) => onClick(e)}>
+          <Rate disabled={isLoading} count={1} />
+        </span>
       )}
     </div>
   );

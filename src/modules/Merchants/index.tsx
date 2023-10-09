@@ -7,7 +7,6 @@ import ComparisonCard from "../../components/UI/ComparisonCard";
 
 const Index: FC = () => {
   const {
-    getExistPairSuggestionsForSelectedMerchant,
     merchantsList,
     merchantPairs,
     addMerchantPair,
@@ -26,9 +25,6 @@ const Index: FC = () => {
   const [secondSelectedMerchant, setSecondSelectedMerchant] = useState<any>();
 
   const [selectedPair, setSelectedPair] = useState<any>();
-
-  const [existPairsForSelectedMerchant, setExistPairsForSelectedMerchant] =
-    useState([]);
 
   useEffect(() => {
     if (merchantAreAdded) {
@@ -64,14 +60,8 @@ const Index: FC = () => {
   }
 
   const onSelectMerchant = (merchant_id: any) => {
-    if (existPairsForSelectedMerchant.includes(merchant_id)) {
-      return null;
-    }
     if (!firstSelectedMerchant) {
       setFirstSelectedMerchant(merchant_id);
-      setExistPairsForSelectedMerchant(
-        getExistPairSuggestionsForSelectedMerchant(merchant_id),
-      );
     } else {
       setSecondSelectedMerchant(merchant_id);
     }
@@ -80,7 +70,6 @@ const Index: FC = () => {
   const clearSelectedMerchants = () => {
     setFirstSelectedMerchant("");
     setSecondSelectedMerchant("");
-    setExistPairsForSelectedMerchant([]);
   };
 
   const submitMerchants = async () => {
@@ -102,10 +91,6 @@ const Index: FC = () => {
         {merchantsList.map((merchant) => (
           <div
             className={`${styles.merchant} ${
-              existPairsForSelectedMerchant.includes(merchant.merchant_id)
-                ? styles.disabled
-                : ""
-            } ${
               firstSelectedMerchant === merchant.merchant_id
                 ? styles.selected
                 : null
