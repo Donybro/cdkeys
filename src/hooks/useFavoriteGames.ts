@@ -6,13 +6,19 @@ export default function useFavoriteGames() {
   const [key, setKey] = useState("favorite-games");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { isLoading, data, error } = useQuery([key, currentPage], async () => {
-    return await apiRequest.get("/favorites", {
-      params: {
-        page: currentPage,
-      },
-    });
-  });
+  const { isLoading, data, error } = useQuery(
+    [key, currentPage],
+    async () => {
+      return await apiRequest.get("/favorites", {
+        params: {
+          page: currentPage,
+        },
+      });
+    },
+    {
+      keepPreviousData: true,
+    },
+  );
 
   return {
     gamesListIsLoading: isLoading,

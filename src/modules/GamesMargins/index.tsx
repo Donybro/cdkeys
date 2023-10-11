@@ -4,6 +4,7 @@ import { Select, Spin, Table } from "antd";
 import useGamesMargins from "../../hooks/useGamesMargins";
 import useComparisonPairs from "../../hooks/useComparisonPairs";
 import ComparisonCard from "../../components/UI/ComparisonCard";
+import VariantCard from "../../components/UI/VariantCard";
 
 const Index: FC = () => {
   const {
@@ -48,6 +49,19 @@ const Index: FC = () => {
             merchantOne={merchants?.merchant_one}
             merchantTwo={merchants?.merchant_two}
             id={merchants?.id}
+          />
+        );
+      },
+    },
+    {
+      key: "variant",
+      title: "Variant",
+      width: "300px",
+      render: (record: any) => {
+        return (
+          <VariantCard
+            editionName={record?.variant.edition.name}
+            region={record?.variant.region.filterName}
           />
         );
       },

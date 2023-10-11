@@ -4,11 +4,14 @@ import apiRequest from "../../../shared/utils/api/apiRequest";
 import styles from "./style.module.scss";
 import { Divider, Form, Select, Spin, Button } from "antd";
 import OfferCard from "../../../components/Games/OfferCard";
+import VariantCard from "../../../components/UI/VariantCard";
 const Index: FC = () => {
   const { gameId } = useParams();
   const [gameData, setGameData] = useState(null);
   const [gameVariants, setGameVariants] = useState();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isComparingPrices, setIsComparingPrices] = useState<boolean>(false);
   const [gameRegions, setGameRegions] = useState<any>([]);
 
   const getGameData = async () => {
@@ -38,12 +41,26 @@ const Index: FC = () => {
   };
 
   const onFinish = async (values: any) => {
-    const { success } = await apiRequest.post(`/games/${gameId}/variants`, {
+    setIsSubmitting(true);
+    const { data } = await apiRequest.post(`/games/${gameId}/variants`, {
       ...values,
     });
-    if (success) {
+    if (data?.success) {
       await getGameVariants();
     }
+    setIsSubmitting(false);
+  };
+
+  const compareGamePriceNow = async () => {
+    setIsComparingPrices(true);
+    const { data } = await apiRequest.post("/compare-now", {
+      game_id: gameId,
+    });
+    if (data.success) {
+      await getGameData();
+      await getGameVariants();
+    }
+    setIsComparingPrices(false);
   };
 
   useEffect(() => {
@@ -61,16 +78,26 @@ const Index: FC = () => {
         <Spin spinning={isLoading} />
       ) : (
         <div>
-          <h1>{gameData?.name}</h1>
+          <div className={styles.header}>
+            <h1>{gameData?.name}</h1>
+            <Button
+              disabled={isComparingPrices}
+              loading={isComparingPrices}
+              type={"primary"}
+              onClick={compareGamePriceNow}
+            >
+              Compare now
+            </Button>
+          </div>
           <img className={styles.image} src={gameData?.coverImageUrl} alt="" />
           <Divider />
           <h2>Variants</h2>
           <div className={styles.variantWrapper}>
             {gameVariants?.map((variant) => (
-              <div className={styles.variantCard}>
-                <div>{variant.edition.name}</div>-
-                <div>{variant.region.name}</div>
-              </div>
+              <VariantCard
+                editionName={variant.edition.name}
+                region={variant.region.name}
+              />
             ))}
           </div>
           <div>
@@ -92,7 +119,12 @@ const Index: FC = () => {
                 />
               </Form.Item>
               <Form.Item>
-                <Button type="primary" htmlType="submit">
+                <Button
+                  disabled={isSubmitting}
+                  loading={isSubmitting}
+                  type="primary"
+                  htmlType="submit"
+                >
                   Submit
                 </Button>
               </Form.Item>

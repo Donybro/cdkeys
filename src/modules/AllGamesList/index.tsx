@@ -35,6 +35,7 @@ const Index: FC = () => {
     {
       title: "Name",
       width: "300px",
+      fixed: "left",
       render: (record: any) => {
         return (
           <div>
@@ -97,58 +98,53 @@ const Index: FC = () => {
 
   return (
     <div className={styles.gamesPagesWrapper}>
-      {gamesListIsLoading ? (
-        <Spin />
-      ) : (
-        <div>
-          <MeiliSearchBox />
-          <Table
-            rowKey={(record) => record.id}
-            columns={columns}
-            dataSource={gamesList.data}
-            pagination={{
-              pageSize: 100,
-              defaultPageSize: 100,
-              current: currentPage,
-              onChange: onPaginationChange,
-              total: totalGames,
-            }}
-            expandable={{
-              expandedRowRender: (record) => {
-                return record.lastUpdate?.offers.map(
-                  (offer: any, index: number) => {
-                    return (
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "10px",
-                        }}
-                      >
-                        {index + 1}
-                        <OfferCard
-                          offerInfo={offer}
-                          merchantInfo={
-                            record.lastUpdate.merchants[offer.merchant]
-                          }
-                          regionInfo={record.lastUpdate.regions[offer.region]}
-                          editionInfo={
-                            record.lastUpdate.editions[offer.edition]
-                          }
-                        />
-                      </div>
-                    );
-                  },
-                );
-              },
-              rowExpandable: (record: any) =>
-                record.lastUpdate?.offers?.length > 1,
-            }}
-            scroll={{ y: 900 }}
-            showTotal={true}
-          />
-        </div>
-      )}
+      <div>
+        <MeiliSearchBox />
+        <Table
+          loading={gamesListIsLoading}
+          rowKey={(record) => record.id}
+          columns={columns}
+          dataSource={gamesList}
+          pagination={{
+            pageSize: 100,
+            defaultPageSize: 100,
+            current: currentPage,
+            onChange: onPaginationChange,
+            total: totalGames,
+          }}
+          expandable={{
+            expandedRowRender: (record) => {
+              return record.lastUpdate?.offers.map(
+                (offer: any, index: number) => {
+                  return (
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                      }}
+                    >
+                      {index + 1}
+                      <OfferCard
+                        offerInfo={offer}
+                        merchantInfo={
+                          record.lastUpdate.merchants[offer.merchant]
+                        }
+                        regionInfo={record.lastUpdate.regions[offer.region]}
+                        editionInfo={record.lastUpdate.editions[offer.edition]}
+                      />
+                    </div>
+                  );
+                },
+              );
+            },
+            rowExpandable: (record: any) =>
+              record.lastUpdate?.offers?.length > 1,
+          }}
+          scroll={{ y: 900 }}
+          showTotal={true}
+        />
+      </div>
     </div>
   );
 };

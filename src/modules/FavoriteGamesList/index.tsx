@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import useAddToFavorites from "../../hooks/useAddToFavorites";
 import useFavoriteGames from "../../hooks/useFavoriteGames";
+import MeiliSearchBox from "../../components/UI/MeiliSearchBox";
 
 const Index: FC = () => {
   const {
@@ -64,19 +65,22 @@ const Index: FC = () => {
       {gamesListIsLoading ? (
         <Spin />
       ) : (
-        <Table
-          rowKey={(record) => record.id}
-          columns={columns}
-          dataSource={gamesList.data}
-          pagination={{
-            pageSize: 100,
-            defaultPageSize: 100,
-            current: currentPage,
-            onChange: onPaginationChange,
-            total: total,
-          }}
-          scroll={{ y: 900 }}
-        />
+        <div>
+          <MeiliSearchBox filters={"is_favorite = 'true'"} />
+          <Table
+            rowKey={(record) => record.id}
+            columns={columns}
+            dataSource={gamesList.data}
+            pagination={{
+              pageSize: 100,
+              defaultPageSize: 100,
+              current: currentPage,
+              onChange: onPaginationChange,
+              total: total,
+            }}
+            scroll={{ y: 900 }}
+          />
+        </div>
       )}
     </div>
   );

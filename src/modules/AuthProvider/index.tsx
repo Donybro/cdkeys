@@ -6,13 +6,18 @@ const Index: FC = ({ children }: any) => {
   const { activeUser, setActiveUser } = useContext(AppContext);
 
   const getUser = async () => {
-    const resp = await apiRequest.get("/user");
+    const { data } = await apiRequest.get("/user");
+    if (data) {
+      setActiveUser(data);
+    }
   };
 
   if (!activeUser) {
     getUser();
   }
-  return <div>{children}</div>;
+  if (activeUser) {
+    return <div>{children}</div>;
+  }
 };
 
 export default Index;

@@ -18,6 +18,8 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import addToFavorites from "../AddToFavorites";
 
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
 const searchClient = instantMeiliSearch(
   "http://165.232.104.38:70/",
   "cdKeyStopPWdS",
@@ -25,10 +27,11 @@ const searchClient = instantMeiliSearch(
     primaryKey: "id",
   },
 );
+interface MailiSearchBoxProps {
+  filters?: string;
+}
 
-interface MailiSearchBoxProps {}
-
-const Index: FC<MailiSearchBoxProps> = () => {
+const Index: FC<MailiSearchBoxProps> = ({ filters = "" }) => {
   const navigate = useNavigate();
 
   const Hit = ({ hit }) => {
@@ -41,6 +44,30 @@ const Index: FC<MailiSearchBoxProps> = () => {
 
     const instantSearchObject = useInstantSearch();
 
+    const deleteFromFavoritesHandler = async (e, hitId) => {
+      setLoadingHit({ ...loadingHit, [hitId]: true });
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+      await deleteFromFavorites(hitId);
+      await searchClient.clearCache();
+      setTimeout(async () => {
+        await instantSearchObject.refresh();
+        setLoadingHit({ ...loadingHit, [hitId]: false });
+      }, 500);
+    };
+
+    const addToFavorites = async (e, hitId) => {
+      setLoadingHit({ ...loadingHit, [hitId]: true });
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+      await addToFavoritesHandler(hitId);
+      await searchClient.clearCache();
+      setTimeout(async () => {
+        await instantSearchObject.refresh();
+        setLoadingHit({ ...loadingHit, [hitId]: false });
+      }, 500);
+    };
+
     return (
       <div onClick={onClickHit} className={"result-hit-wrapper"}>
         <Highlight attribute="name" hit={hit} />
@@ -48,16 +75,9 @@ const Index: FC<MailiSearchBoxProps> = () => {
           <Button
             loading={loadingHit[hit.id]}
             type={"primary"}
+            className={"delete-btn"}
             onClick={async (e) => {
-              setLoadingHit({ ...loadingHit, [hit.id]: true });
-              e.stopPropagation();
-              e.nativeEvent.stopImmediatePropagation();
-              await deleteFromFavorites(hit.id);
-              await searchClient.clearCache();
-              setTimeout(async () => {
-                await instantSearchObject.refresh();
-                setLoadingHit({ ...loadingHit, [hit.id]: false });
-              }, 500);
+              await deleteFromFavoritesHandler(e, hit.id);
             }}
             icon={<FontAwesomeIcon icon={faTrash} />}
           />
@@ -65,15 +85,7 @@ const Index: FC<MailiSearchBoxProps> = () => {
           <AddToFavorites
             isLoading={loadingHit[hit.id]}
             onClick={async (e) => {
-              setLoadingHit({ ...loadingHit, [hit.id]: true });
-              e.stopPropagation();
-              e.nativeEvent.stopImmediatePropagation();
-              await addToFavoritesHandler(hit.id);
-              await searchClient.clearCache();
-              setTimeout(async () => {
-                await instantSearchObject.refresh();
-                setLoadingHit({ ...loadingHit, [hit.id]: false });
-              }, 500);
+              await addToFavorites(e, hit.id);
             }}
           />
         )}
@@ -93,8 +105,12 @@ const Index: FC<MailiSearchBoxProps> = () => {
   return (
     <div className={"meilisearch-box-ui"}>
       <InstantSearch indexName="games" searchClient={searchClient}>
-        <Configure analytics={false} filters="" hitsPerPage={40} />
-        <SearchBox queryHook={queryHook} placeholder={"Search games here"} />
+        <Configure analytics={false} filters={filters} hitsPerPage={40} />
+        <SearchBox
+          resetIconComponent={() => <FontAwesomeIcon icon={faXmark} />}
+          queryHook={queryHook}
+          placeholder={"Search games here"}
+        />
         {showHits && <Hits hitComponent={Hit} />}
       </InstantSearch>
     </div>
