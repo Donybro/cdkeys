@@ -36,7 +36,7 @@ const Index: FC<MailiSearchBoxProps> = ({ filters = "" }) => {
 
   const Hit = ({ hit }) => {
     const onClickHit = () => {
-      navigate(`games/${hit.id}`);
+      navigate(`/games/${hit.id}`);
     };
     const { addToFavoritesHandler, deleteFromFavorites } = useAddToFavorites();
 

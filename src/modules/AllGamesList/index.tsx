@@ -8,6 +8,8 @@ import OfferCard from "../../components/Games/OfferCard";
 import AddToFavorites from "../../components/UI/AddToFavorites";
 import useAddToFavorites from "../../hooks/useAddToFavorites";
 import MeiliSearchBox from "../../components/UI/MeiliSearchBox";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Index: FC = () => {
   const {
@@ -25,6 +27,8 @@ const Index: FC = () => {
     isLoading: addingToFavoritesIsLoading,
     deleteFromFavorites,
   } = useAddToFavorites();
+
+  const navigate = useNavigate();
 
   const onDeleteFromFavorites = async (game_id: any) => {
     await deleteFromFavorites(game_id);
@@ -62,33 +66,36 @@ const Index: FC = () => {
       },
     },
     {
-      title: "Add to favorites",
-      render: (val: any, record: any) => {
-        return (
-          <div>
-            {record.is_favorite ? (
-              <Button
-                disabled={addingToFavoritesIsLoading === record.id}
-                loading={addingToFavoritesIsLoading === record.id}
-                type={"primary"}
-                onClick={() => onDeleteFromFavorites(record.id)}
-                icon={<FontAwesomeIcon icon={faTrash} />}
-              >
-                Delete from favorites
-              </Button>
-            ) : (
-              <AddToFavorites
-                isLoading={addingToFavoritesIsLoading === record.id}
-                onClick={async () => {
-                  await addToFavoritesHandler(record.id);
-                  setKey(key + "1");
-                }}
-              />
-            )}
+      title: "Action",
+      render: (record) => (
+        <div className={"flex items-center gap-20"}>
+          {record.is_favorite ? (
+            <Button
+              disabled={addingToFavoritesIsLoading === record.id}
+              loading={addingToFavoritesIsLoading === record.id}
+              type={"primary"}
+              onClick={() => onDeleteFromFavorites(record.id)}
+              icon={<FontAwesomeIcon icon={faTrash} />}
+            >
+              Delete from favorites
+            </Button>
+          ) : (
+            <AddToFavorites
+              isLoading={addingToFavoritesIsLoading === record.id}
+              onClick={async () => {
+                await addToFavoritesHandler(record.id);
+                setKey(key + "1");
+              }}
+            />
+          )}
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/games/${record.id}`)}
+          >
+            <FontAwesomeIcon icon={faEye} />
           </div>
-        );
-      },
-      width: "220px",
+        </div>
+      ),
     },
   ];
 

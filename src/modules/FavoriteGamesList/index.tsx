@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styles from "../../pages/AllGamesPage/style.module.scss";
 import { Button, Spin, Table } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import useAddToFavorites from "../../hooks/useAddToFavorites";
 import useFavoriteGames from "../../hooks/useFavoriteGames";
 import MeiliSearchBox from "../../components/UI/MeiliSearchBox";
@@ -42,15 +42,23 @@ const Index: FC = () => {
       key: "action",
       title: "Action",
       render: (val: any, record: any) => (
-        <Button
-          disabled={addingToFavoritesIsLoading === record.id}
-          loading={addingToFavoritesIsLoading === record.id}
-          type={"primary"}
-          onClick={() => onDeleteFromFavorites(record.id)}
-          icon={<FontAwesomeIcon icon={faTrash} />}
-        >
-          Delete from favorites
-        </Button>
+        <div className={"flex items-center gap-20"}>
+          <Button
+            disabled={addingToFavoritesIsLoading === record.id}
+            loading={addingToFavoritesIsLoading === record.id}
+            type={"primary"}
+            onClick={() => onDeleteFromFavorites(record.id)}
+            icon={<FontAwesomeIcon icon={faTrash} />}
+          >
+            Delete from favorites
+          </Button>
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/games/${record.id}`)}
+          >
+            <FontAwesomeIcon icon={faEye} />
+          </div>
+        </div>
       ),
       width: "100px",
     },

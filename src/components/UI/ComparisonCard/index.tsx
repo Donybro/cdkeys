@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import styles from "./style.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowsLeftRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowsLeftRight,
+  faArrowRightLong,
+} from "@fortawesome/free-solid-svg-icons";
 import MerchantItem from "../MerchantItem";
 
 interface ComparisonCardProps {
@@ -27,7 +30,7 @@ const Index: FC<ComparisonCardProps> = ({
           logoSlug={merchantOne?.logoSlug}
         />
       </div>
-      <FontAwesomeIcon icon={faArrowsLeftRight} />
+      <FontAwesomeIcon icon={faArrowRightLong} />
       <div className={styles.merchantTwo}>
         <MerchantItem
           name={merchantTwo?.name}

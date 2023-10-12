@@ -1,12 +1,15 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import styles from "../../pages/AllGamesPage/style.module.scss";
-import { Select, Spin, Table } from "antd";
+import { Button, message, Select, Spin, Table, Tag } from "antd";
 import useGamesMargins from "../../hooks/useGamesMargins";
 import useComparisonPairs from "../../hooks/useComparisonPairs";
 import ComparisonCard from "../../components/UI/ComparisonCard";
 import VariantCard from "../../components/UI/VariantCard";
+import apiRequest from "../../shared/utils/api/apiRequest";
+import moment from "moment";
+import GameMarginsTable from "../../components/Tables/GameMarginsTable";
 
-const Index: FC = () => {
+const Index: FC = ({}) => {
   const {
     gamesList,
     gamesListIsLoading,
@@ -15,8 +18,21 @@ const Index: FC = () => {
     setCurrentPage,
     total,
   } = useGamesMargins();
+
   const { data: comparisonList, getPairById } = useComparisonPairs();
   const { Option } = Select;
+
+  const [compareNowLoading, setCompareNowLoading] = useState<boolean>(false);
+
+  const compareAllNow = async () => {
+    try {
+      setCompareNowLoading(true);
+      const resp = await apiRequest.post("/compare-all");
+    } catch (e) {
+      message.error("Something get wrong");
+    }
+    setCompareNowLoading(false);
+  };
 
   const handleChange = (value: any) => {
     setComparisonId(value);
@@ -25,59 +41,9 @@ const Index: FC = () => {
     setCurrentPage(page);
   };
 
-  const columns: any = [
-    {
-      key: "name",
-      title: "Name",
-      width: "300px",
-      render: (record: any) => {
-        return (
-          <div>
-            <h3>{record.game.name}</h3>
-          </div>
-        );
-      },
-    },
-    {
-      key: "pair",
-      title: "Platforms pair",
-      width: "300px",
-      render: (record: any) => {
-        const merchants = getPairById(record.comparison_id);
-        return (
-          <ComparisonCard
-            merchantOne={merchants?.merchant_one}
-            merchantTwo={merchants?.merchant_two}
-            id={merchants?.id}
-          />
-        );
-      },
-    },
-    {
-      key: "variant",
-      title: "Variant",
-      width: "300px",
-      render: (record: any) => {
-        return (
-          <VariantCard
-            editionName={record?.variant.edition.name}
-            region={record?.variant.region.filterName}
-          />
-        );
-      },
-    },
-    {
-      title: "Margin",
-      render: (record: any) => {
-        return <div>{record.percent}%</div>;
-      },
-      width: "100px",
-    },
-  ];
-
   return (
     <div className={styles.gamesPagesWrapper}>
-      <div>
+      <div className={"flex items-center gap-20"}>
         <Select
           placeholder="Please select platforms pair"
           onChange={handleChange}
@@ -104,22 +70,24 @@ const Index: FC = () => {
             </Option>
           ))}
         </Select>
+        <Button
+          onClick={compareAllNow}
+          disabled={compareNowLoading}
+          loading={compareNowLoading}
+          type={"primary"}
+        >
+          Compare all now
+        </Button>
       </div>
       {gamesListIsLoading ? (
         <Spin />
       ) : (
-        <Table
-          rowKey={(record) => record.id}
+        <GameMarginsTable
           columns={columns}
-          dataSource={gamesList.data}
-          pagination={{
-            pageSize: 100,
-            defaultPageSize: 100,
-            current: currentPage,
-            onChange: onPaginationChange,
-            total: total,
-          }}
-          scroll={{ y: 900 }}
+          data={gamesList.data}
+          currentPage={currentPage}
+          onPaginationChange={onPaginationChange}
+          total={total}
         />
       )}
     </div>
