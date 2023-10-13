@@ -9,7 +9,7 @@ import apiRequest from "../../shared/utils/api/apiRequest";
 import moment from "moment";
 import GameMarginsTable from "../../components/Tables/GameMarginsTable";
 
-const Index: FC = ({}) => {
+const Index: FC = () => {
   const {
     gamesList,
     gamesListIsLoading,
@@ -83,7 +83,6 @@ const Index: FC = ({}) => {
         <Spin />
       ) : (
         <GameMarginsTable
-          columns={columns}
           data={gamesList.data}
           currentPage={currentPage}
           onPaginationChange={onPaginationChange}

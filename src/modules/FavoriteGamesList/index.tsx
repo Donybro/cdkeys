@@ -6,6 +6,7 @@ import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import useAddToFavorites from "../../hooks/useAddToFavorites";
 import useFavoriteGames from "../../hooks/useFavoriteGames";
 import MeiliSearchBox from "../../components/UI/MeiliSearchBox";
+import { useNavigate } from "react-router-dom";
 
 const Index: FC = () => {
   const {
@@ -24,6 +25,8 @@ const Index: FC = () => {
     await deleteFromFavorites(game_id);
     setKey(key + "1");
   };
+
+  const navigate = useNavigate();
 
   const columns: any = [
     {
