@@ -48,6 +48,8 @@ const Index: FC = () => {
           placeholder="Please select platforms pair"
           onChange={handleChange}
           optionLabelProp="label"
+          popupClassName={styles.variantsPopupWrapper}
+          popupMatchSelectWidth={false}
         >
           {comparisonList.map((pair: any) => (
             <Option
