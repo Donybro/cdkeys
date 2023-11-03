@@ -11,7 +11,7 @@ export default function useGamesMargins() {
     async () => {
       return await apiRequest.get("/margins", {
         params: {
-          comparison_id: key,
+          comparison_id: key || null,
           page: currentPage,
         },
       });

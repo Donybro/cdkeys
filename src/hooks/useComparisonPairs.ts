@@ -8,7 +8,7 @@ export default function useComparisonPairs() {
 
   const getPairById = (comparisonId: any) => {
     if (data?.data) {
-      return data?.data?.filter((val) => val.id === comparisonId)[0];
+      return data?.data?.filter((val:any) => val.id === comparisonId)[0];
     }
     return {};
   };

@@ -8,6 +8,8 @@ import VariantCard from "../../components/UI/VariantCard";
 import apiRequest from "../../shared/utils/api/apiRequest";
 import moment from "moment";
 import GameMarginsTable from "../../components/Tables/GameMarginsTable";
+import useMerchants from "../../hooks/useMerchants.ts";
+import MerchantItem from "../../components/UI/MerchantItem";
 
 const Index: FC = () => {
   const {
@@ -18,9 +20,12 @@ const Index: FC = () => {
     setCurrentPage,
     total,
   } = useGamesMargins();
+  
 
   const { data: comparisonList, getPairById } = useComparisonPairs();
   const { Option } = Select;
+
+  const { merchantsList } = useMerchants();
 
   const [compareNowLoading, setCompareNowLoading] = useState<boolean>(false);
 
@@ -37,6 +42,10 @@ const Index: FC = () => {
   const handleChange = (value: any) => {
     setComparisonId(value);
   };
+  
+  const onMerchantSelect = (value: any) => {
+    // setComparisonId(value);
+  };
   const onPaginationChange = (page: any) => {
     setCurrentPage(page);
   };
@@ -51,6 +60,12 @@ const Index: FC = () => {
           popupClassName={styles.variantsPopupWrapper}
           popupMatchSelectWidth={false}
         >
+          <Option
+              value={null}
+              label={'Select all'}
+          >
+            Select all
+          </Option>
           {comparisonList.map((pair: any) => (
             <Option
               value={pair.id}
@@ -80,6 +95,27 @@ const Index: FC = () => {
         >
           Compare all now
         </Button>
+        <Select
+            placeholder="Select merchant to see price in table"
+            onChange={onMerchantSelect}
+            optionLabelProp="label"
+            popupClassName={styles.variantsPopupWrapper}
+            popupMatchSelectWidth={false}
+        >
+          {merchantsList.map((merchant: any) => (
+              <Option
+                  value={merchant.merchant_id}
+                  label={
+                    <MerchantItem name={merchant.name} logoSlug={merchant.logoSlug} />
+                  }
+              >
+                {
+                  <MerchantItem name={merchant.name} logoSlug={merchant.logoSlug} />
+                }
+              </Option>
+          ))}
+        </Select>
+        
       </div>
       {gamesListIsLoading ? (
         <Spin />
