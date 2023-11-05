@@ -21,7 +21,6 @@ const Index: FC<VariantCardInterface> = ({
   return (
     <div className={style.wrapper}>
       <span className={style.region}>
-        <FontAwesomeIcon icon={faGlobe} />
         {region}
       </span>
       -<span className={style.editionName}>{editionName}</span>

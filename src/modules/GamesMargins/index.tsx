@@ -19,6 +19,8 @@ const Index: FC = () => {
     currentPage,
     setCurrentPage,
     total,
+      setUpdate,
+      update:updateMarginsListValue
   } = useGamesMargins();
   
 
@@ -28,6 +30,7 @@ const Index: FC = () => {
   const { merchantsList } = useMerchants();
 
   const [compareNowLoading, setCompareNowLoading] = useState<boolean>(false);
+  const [selectedMerchants, setSelectedMerchants] = useState<any[]>([]);
 
   const compareAllNow = async () => {
     try {
@@ -44,10 +47,44 @@ const Index: FC = () => {
   };
   
   const onMerchantSelect = (value: any) => {
-    // setComparisonId(value);
+    const selectedMerchants  = merchantsList.filter((merchant:any)=>value.includes(merchant.merchant_id))
+    setSelectedMerchants(selectedMerchants)
   };
   const onPaginationChange = (page: any) => {
     setCurrentPage(page);
+  };
+
+  const [isComparingPrices, setIsComparingPrices] = useState<any>({});
+  const [isSyncing, setIsSyncing] = useState<any>({});
+  
+  const compareGamePriceNow = async (gameId:any) => {
+    setIsComparingPrices({
+      ...isComparingPrices,
+      [gameId]:true
+    });
+    const { data } = await apiRequest.post("/compare-now", {
+      game_id: gameId,
+    });
+    if (data.success) {
+      setUpdate(updateMarginsListValue + "1");
+    }
+    setIsComparingPrices(
+        {...isComparingPrices,[gameId]:false}
+    );
+  };
+
+  const syncGameNow = async (gameId:any) => {
+    setIsSyncing({
+      ...isSyncing,
+      [gameId]:true
+    });
+    const { data } = await apiRequest.post("/update-now", {
+      game_id: gameId,
+    });
+    if (data.success) {
+      setUpdate(updateMarginsListValue + "1");
+    }
+    setIsSyncing({...isSyncing,[gameId]:false});
   };
 
   return (
@@ -101,6 +138,7 @@ const Index: FC = () => {
             optionLabelProp="label"
             popupClassName={styles.variantsPopupWrapper}
             popupMatchSelectWidth={false}
+            mode={'multiple'}
         >
           {merchantsList.map((merchant: any) => (
               <Option
@@ -125,6 +163,11 @@ const Index: FC = () => {
           currentPage={currentPage}
           onPaginationChange={onPaginationChange}
           total={total}
+          selectedMerchants={selectedMerchants}
+          onSyncNow={syncGameNow}
+          onCompareNow={compareGamePriceNow}
+          syncNowIsLoading={isSyncing}
+          compareNowIsLoading={isComparingPrices}
         />
       )}
     </div>

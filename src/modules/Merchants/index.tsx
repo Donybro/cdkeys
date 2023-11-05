@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
 import useMerchants from "../../hooks/useMerchants";
 import MerchantItem from "../../components/UI/MerchantItem";
-import { Button, message, Space } from "antd";
+import {Button, Divider, Form, Input, message, Select, Space} from "antd";
 import styles from "./style.module.scss";
 import ComparisonCard from "../../components/UI/ComparisonCard";
+import apiRequest from "../../shared/utils/api/apiRequest.ts";
 
 const Index: FC = () => {
   const {
@@ -23,6 +24,23 @@ const Index: FC = () => {
 
   const [firstSelectedMerchant, setFirstSelectedMerchant] = useState<any>();
   const [secondSelectedMerchant, setSecondSelectedMerchant] = useState<any>();
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+
+  const [form] = Form.useForm();
+
+  const addNewMerchant = async (values: any) => {
+    setIsSubmitting(true);
+    const { data } = await apiRequest.post(`/merchants`, {
+      ...values,
+    });
+    if (data?.success) {
+      form.resetFields(['name'])
+      updateLists()
+      message.success("New merchant added");
+    }
+    setIsSubmitting(false);
+  };
 
   const [selectedPair, setSelectedPair] = useState<any>();
 
@@ -122,6 +140,7 @@ const Index: FC = () => {
           Submit
         </Button>
       </Space>
+      <Divider/>
       <br />
       <h1>List of merchant pairs</h1>
       <div className={styles.merchantsList}>
@@ -141,14 +160,40 @@ const Index: FC = () => {
         ))}
       </div>
       <br />
-      <Button
-        disabled={pairIsDeleting}
-        loading={pairIsDeleting}
-        type={"dashed"}
-        onClick={deleteSelectedPair}
-      >
-        Delete selected pair
-      </Button>
+      <div className={'flex gap-10'}>
+        <Button
+            disabled={!selectedPair || pairIsDeleting}
+            loading={pairIsDeleting}
+            type={"dashed"}
+            onClick={deleteSelectedPair}
+        >
+          Delete selected pair
+        </Button>
+        <Button
+            disabled={!selectedPair}
+            type={"dashed"}
+            onClick={()=>setSelectedPair('')}
+        >
+          Cancel selected
+        </Button>
+      </div>
+      <Divider/>
+      <h1>Add new merchant</h1>
+      <Form layout={"inline"} form={form} onFinish={addNewMerchant}>
+        <Form.Item name={"name"} rules={[{ required: true }]}>
+          <Input placeholder={'Merchant name'} />
+        </Form.Item>
+        <Form.Item>
+          <Button
+              disabled={isSubmitting}
+              loading={isSubmitting}
+              type="primary"
+              htmlType="submit"
+          >
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
 };

@@ -14,3 +14,19 @@
   flex-wrap: wrap;
   gap: 12px;
 }
+.game-offers-wrapper{
+  
+  .gameOffer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #EAEAEA;
+    padding: 8px 0;
+  }
+}
+.gameVariantsBlock{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 16px 0;
+}

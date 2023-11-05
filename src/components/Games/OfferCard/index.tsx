@@ -18,9 +18,9 @@ const Index: FC = ({ merchantInfo, offerInfo, regionInfo, editionInfo }) => {
         </div>
         <div className={styles.platformWrapper}>
           <span className={styles?.region}>{regionInfo.name}</span>
-          <span
-            className={`${styles.platformLogo} sprite sprite-30-${offerInfo.platform}`}
-          ></span>
+          {/*<span*/}
+          {/*  className={`${styles.platformLogo} sprite sprite-30-${offerInfo.platform}`}*/}
+          {/*></span>*/}
         </div>
         <div className={styles.editionWrapper}>
           {/*<span>{editionInfo.name}</span>*/}

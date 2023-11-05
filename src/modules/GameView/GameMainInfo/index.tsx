@@ -10,6 +10,10 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import AddToFavorites from "../../../components/UI/AddToFavorites";
 import useAddToFavorites from "../../../hooks/useAddToFavorites";
 import GameMarginsTable from "../../../components/Tables/GameMarginsTable";
+import useRegions from "../../../hooks/useRegions.ts";
+import useEditions from "../../../hooks/useEditions.ts";
+const { Option } = Select;
+
 const Index: FC = () => {
   const { gameId } = useParams();
   const [gameData, setGameData] = useState(null);
@@ -20,6 +24,14 @@ const Index: FC = () => {
   const [isComparingPrices, setIsComparingPrices] = useState<boolean>(false);
   const [isSyncing, setIsSyncing] = useState<boolean>(false);
   const [gameRegions, setGameRegions] = useState<any>([]);
+  const [gameMargins, setGameMargins] = useState<any>([]);
+  const [filteredGameMargins, setFilteredGameMargins] = useState<any>([]);
+  
+  
+  const {regionsAreLoading,regionsList,setSelectedRegion,selectedRegion} = useRegions()
+  const {editionsAreLoading,editionsList,setSelectedEdition,selectedEdition} = useEditions()
+  
+  
 
   const getGameData = async () => {
     setIsLoading(true);
@@ -34,6 +46,8 @@ const Index: FC = () => {
           label: el.filterName,
         })),
       );
+      setGameMargins(data?.margins)
+      setFilteredGameMargins(data?.margins)
     }
     setIsLoading(false);
   };
@@ -116,6 +130,40 @@ const Index: FC = () => {
   const onDeleteFromFavorites = async (game_id: any) => {
     await deleteFromFavorites(game_id);
   };
+  
+  const onSelectEdition = (value)=>{
+    setSelectedEdition(value)
+  }
+  const onSelectRegion = (value)=>{
+    setSelectedRegion(value)
+  }
+  
+  const clearMarginsFilter  = ()=>{
+    setSelectedRegion('')
+    setSelectedEdition('')
+  }
+  
+  useEffect(()=>{
+    let result = []
+    if(selectedRegion || selectedRegion){
+      result = gameMargins.filter((game:any)=> {
+        if(selectedRegion && selectedEdition){
+          return game.variant.edition_id == selectedEdition && game.variant.region_id == selectedRegion
+        }
+        if(!selectedEdition && selectedRegion){
+          return  game.variant.region_id == selectedRegion
+        }
+        if(!selectedRegion && selectedEdition){
+          return  game.variant.edition_id == selectedEdition
+        }
+      } )
+    }
+    
+    if(!selectedEdition && !selectedRegion){
+      result =  [...gameMargins]
+    }
+    setFilteredGameMargins(result)
+  },[selectedEdition,selectedRegion])
 
   return (
     <>
@@ -170,60 +218,87 @@ const Index: FC = () => {
           </div>
           <img className={styles.image} src={gameData?.coverImageUrl} alt="" />
           <Divider />
-          <h2 className={"my-2"}>Variants</h2>
-          <div className={styles.variantWrapper}>
-            {gameVariants?.map((variant) => (
-              <VariantCard
-                editionName={variant.edition.name}
-                region={variant.region.name}
-                deletable={true}
-                isDeleting={variantIsDeleting}
-                onDelete={() => deleteVariant(variant.id)}
-              />
-            ))}
+          <div className={styles.gameVariantsBlock}>
+            <div>
+              <h2 className={"my-2"}>Variants</h2>
+              <div className={styles.variantWrapper}>
+                {gameVariants?.map((variant) => (
+                    <VariantCard
+                        editionName={variant.edition.name}
+                        region={variant.region.name}
+                        deletable={true}
+                        isDeleting={variantIsDeleting}
+                        onDelete={() => deleteVariant(variant.id)}
+                    />
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className={"my-2"}>Add new variant</h2>
+              <Form layout={"inline"} form={form} onFinish={onFinish}>
+                <Form.Item name={"edition_id"} rules={[{ required: true }]}>
+                  <Select
+                      placeholder={"Select game edition"}
+                      options={gameData?.editions.map((el) => ({
+                        value: el.id,
+                        label: el.name,
+                      }))}
+                  />
+                </Form.Item>
+                <Form.Item name={"region_id"} rules={[{ required: true }]}>
+                  <Select
+                      placeholder={"Select game region"}
+                      options={gameRegions}
+                  />
+                </Form.Item>
+                <Form.Item>
+                  <Button
+                      disabled={isSubmitting}
+                      loading={isSubmitting}
+                      type="primary"
+                      htmlType="submit"
+                  >
+                    Submit
+                  </Button>
+                </Form.Item>
+              </Form>
+            </div>
           </div>
-          <div className={"my-6"}>
-            <h3 className={"my-2"}>Add Variant</h3>
-            <Form layout={"inline"} form={form} onFinish={onFinish}>
-              <Form.Item name={"edition_id"} rules={[{ required: true }]}>
-                <Select
-                  placeholder={"Select game edition"}
-                  options={gameData?.editions.map((el) => ({
-                    value: el.id,
-                    label: el.name,
-                  }))}
-                />
-              </Form.Item>
-              <Form.Item name={"region_id"} rules={[{ required: true }]}>
-                <Select
-                  placeholder={"Select game region"}
-                  options={gameRegions}
-                />
-              </Form.Item>
-              <Form.Item>
-                <Button
-                  disabled={isSubmitting}
-                  loading={isSubmitting}
-                  type="primary"
-                  htmlType="submit"
-                >
-                  Submit
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
+          <Divider/>
           <h2 className={"my-6"}>Margins</h2>
-          <GameMarginsTable data={gameData?.margins} pagination={false} />
+          <div className={'flex gap-10'}>
+            <Select
+                placeholder={'Filter by edition'}
+                style={{width:200}}
+                onChange={onSelectEdition}
+            >
+              {
+                editionsList.map((edition:any)=><Option value={edition.edition_id}>
+                  {edition.name}
+                </Option>)
+              }
+            </Select>
+            <Select
+                placeholder={'Filter by region'}
+                style={{width:200}}
+                onChange={onSelectRegion}
+            >
+              {
+                regionsList.map((region:any)=><Option value={region.region_id}>
+                  {region.filterName}
+                </Option>)
+              }</Select>
+            <Button type={'primary'} onClick={clearMarginsFilter}>
+              Clear filters
+            </Button>
+          </div>
+          <GameMarginsTable data={filteredGameMargins} pagination={false} />
           <h2 className={"my-6"}>Offers</h2>
-          <div>
+          <div className={styles.gameOffersWrapper}>
             {gameData?.last_update?.offers.map((offer: any, index: number) => {
               return (
                 <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                  }}
+                  className={styles.gameOffer}
                 >
                   {index + 1}
                   <OfferCard

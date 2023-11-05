@@ -4,10 +4,11 @@ import { useState } from "react";
 
 export default function useGamesMargins() {
   const [key, setKey] = useState("");
+  const [update, setUpdate] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
   const { isLoading, data, error } = useQuery(
-    ["game-margins", key, [currentPage]],
+    ["game-margins", [key,update], [currentPage]],
     async () => {
       return await apiRequest.get("/margins", {
         params: {
@@ -16,6 +17,9 @@ export default function useGamesMargins() {
         },
       });
     },
+      {
+        keepPreviousData: true,
+      },
   );
 
   return {
@@ -26,6 +30,8 @@ export default function useGamesMargins() {
     key,
     total: data?.data?.total,
     setCurrentPage,
+    setUpdate,
     currentPage,
+    update,
   };
 }
